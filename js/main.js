@@ -7,11 +7,11 @@ var prevButton = $(".prev");
 
 nextButton.click(
   function() {
-    var selected = $(".images img.active");
+    var selected = $(".active");
     selected.removeClass("active");
 
     if (selected.hasClass("last")) {
-      $(".images img.first").addClass("active");
+      $(".first").addClass("active");
     } else {
       selected.next().addClass("active");
     }
@@ -20,11 +20,11 @@ nextButton.click(
 
 prevButton.click(
   function() {
-    var selected = $(".images img.active");
+    var selected = $(".active");
     selected.removeClass("active");
 
     if (selected.hasClass("first")) {
-      $(".images img.last").addClass("active");
+      $(".last").addClass("active");
     }
     selected.prev().addClass("active");
   }
