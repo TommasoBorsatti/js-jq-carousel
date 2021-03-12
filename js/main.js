@@ -1,5 +1,5 @@
 
-
+// DEFINITE VARIABILI GLOBALI
 
 var nextButton = $(".next");
 var prevButton = $(".prev");
@@ -38,7 +38,7 @@ var prevButton = $(".prev");
 prevButton.click(prevScroll);
 nextButton.click(nextScroll);
 
-// ASSEGNO LE FUNZIONI AI TASTI
+// ASSEGNO LE FUNZIONI AI TASTI FRECCIA
 
 // la pagina legge i tasti premuti dal document; a ogni tasto è assegnato un keycode.
 
@@ -57,16 +57,16 @@ $(document).keydown(function(evt){
 });
 
 
+//BONUS
 
-
-// il bullet premuto cambia colore
+// il bullet premuto cambia colore e viene selezionata l'immagine corrispondente;
 $(".nav > i").click(
   function() {
     $(".nav i").removeClass("active");
+    $(".images img").removeClass("active");
     $(this).addClass("active");
+    var imgIndex = $(this).index();
+    var imgSorted = $(".images img").eq(imgIndex);
+    imgSorted.addClass("active");
   }
 );
-
-
-
-// ALLA PRESSIONE DEI TASTI FRECCIA
