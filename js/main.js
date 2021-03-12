@@ -5,10 +5,10 @@ var nextButton = $(".next");
 var prevButton = $(".prev");
 
 
-// AL CLICK
+// DEFINISCO FUNZIONI DA RIUTILIZZARE
 
-nextButton.click(
-  function() {
+
+  function nextScroll() {
     var selected = $(".active");
     selected.removeClass("active");
 
@@ -18,22 +18,33 @@ nextButton.click(
       selected.next().addClass("active");
     }
   }
-);
 
 
-function prevScroll() {
-  var selected = $(".active");
-  selected.removeClass("active");
 
-  if (selected.hasClass("first")) {
-    $(".last").addClass("active");
+ function prevScroll() {
+
+    var selected = $(".active");
+    selected.removeClass("active");
+
+    if (selected.hasClass("first")) {
+      $(".last").addClass("active");
+    } else {
+    selected.prev().addClass("active");
+    }
   }
-  selected.prev().addClass("active");
-}
 
+// ASSEGNO LE FUNZIONI AL CLICK
 
+prevButton.click(prevScroll);
+nextButton.click(nextScroll);
 
-prevButton.click(prevScroll());
+// ASSEGNO LE FUNZIONI AI TASTI
+
+// la pagina stampa i tasti premuti
+$(document).keydown(function(evt){
+    alert(evt.keyCode);
+});
+
 
 
 // il bullet premuto cambia colore
@@ -44,9 +55,6 @@ $(".nav > i").click(
   }
 );
 
-// la pagina stampa i tasti premuti
-$(document).keydown(function(evt){
-    alert(evt.keyCode);
-});
+
 
 // ALLA PRESSIONE DEI TASTI FRECCIA
