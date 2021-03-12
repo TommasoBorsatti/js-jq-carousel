@@ -40,10 +40,22 @@ nextButton.click(nextScroll);
 
 // ASSEGNO LE FUNZIONI AI TASTI
 
-// la pagina stampa i tasti premuti
+// la pagina legge i tasti premuti dal document; a ogni tasto è assegnato un keycode.
+
+// al keycode 37 (freccia sinistra) corrisponde la funzione prevScroll.
 $(document).keydown(function(evt){
-    alert(evt.keyCode);
+    if(evt.keyCode == 37){
+      prevScroll();
+    }
 });
+
+// al keycode 39 (freccia destra) corrisponde la funzione prevScroll.
+$(document).keydown(function(evt){
+    if(evt.keyCode == 39){
+      nextScroll();
+    }
+});
+
 
 
 
